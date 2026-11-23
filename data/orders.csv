@@ -1,0 +1,7 @@
+order_id,customer_id,purchased_on,status,promised_on,delivered_on
+O-101,C-01,2025-04-01,delivered,2025-04-05,2025-04-04
+O-102,C-02,2025-04-03,delivered,2025-04-06,2025-04-08
+O-103,C-01,2025-04-05,delivered,2025-04-09,2025-04-09
+O-104,C-03,2025-04-05,delivered,2025-04-10,2025-04-08
+O-105,C-02,2025-04-07,delivered,2025-04-11,
+O-106,C-03,2025-04-09,canceled,2025-04-14,
