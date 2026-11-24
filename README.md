@@ -2,6 +2,18 @@
 
 A standalone portfolio demo based on Shir Mamia's **BI Course Edition**. The example follows a fictional online retailer and shows how the unit of analysis changes the answer to a basic delivery question.
 
+## Power BI report
+
+[Download the PBIX](power-bi/bi-order-grain.pbix) and open it in Power BI Desktop. The report contains the synthetic data and runs without external connections or credentials.
+
+**Delivery Audit** compares the order-level KPI with the item-weighted calculation. Select a customer region to see the denominators change and inspect the underlying orders.
+
+![Delivery Audit in Power BI: 75% per order and 40% weighted by item lines](power-bi/delivery-audit.png)
+
+**Sales & Mix** shows merchandise value, freight charged, and delivered item lines. The region and product-category slicers also filter the category chart and seller breakdown.
+
+![Sales and Mix in Power BI: $331 merchandise value, $53.50 freight, and 12 delivered item lines](power-bi/sales-and-mix.png)
+
 ## The result
 
 | Calculation | Numerator and denominator | Rate |
@@ -43,7 +55,17 @@ Eligible Orders = COUNT ( FactOrder[on_time] )
 On-Time Rate = DIVIDE ( [On-Time Orders], [Eligible Orders] )
 ```
 
-Create the measures individually and format `On-Time Rate` as a percentage. The expected checks are **75%** overall, **100%** for North, and **50%** for South. The HTML report implements the same rules through SQLite. A native Power BI report is not included.
+Create the measures individually and format `On-Time Rate` as a percentage. The HTML report implements the same rules through SQLite.
+
+### Power BI Desktop verification
+
+| Page and filter | Expected result |
+| --- | --- |
+| Sales & Mix · all regions and categories | $331.00 merchandise, $53.50 freight, 12 item lines |
+| Sales & Mix · North | $105.00 merchandise, $16.00 freight, 3 item lines |
+| Sales & Mix · Kitchen | $153.00 merchandise, $26.50 freight, 7 item lines |
+| Delivery Audit · all regions | 75.0% per order, 40.0% item-weighted, 4 eligible orders |
+| Delivery Audit · South | 50.0% per order, 14.3% item-weighted, 2 eligible orders |
 
 ## Data
 
